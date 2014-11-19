@@ -1,10 +1,10 @@
 {
-  "name": "racer",
+  "name": "k-model",
   "description": "Realtime model synchronization engine for Node.js",
   "homepage": "http://racerjs.com/",
   "repository": {
     "type": "git",
-    "url": "git://github.com/codeparty/racer.git"
+    "url": "git://github.com/kantele/k-model.git"
   },
   "version": "0.6.0-alpha24",
   "main": "./lib/index.js",
