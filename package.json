@@ -6,10 +6,12 @@
     "type": "git",
     "url": "git://github.com/kantele/k-model.git"
   },
-  "version": "0.8.8",
+  "version": "0.8.13",
   "main": "./lib/index.js",
   "scripts": {
-    "test": "mocha test/**/*.mocha.js && ./node_modules/.bin/jshint lib/*.js lib/**/*.js"
+    "lint": "eslint --ignore-path .gitignore .",
+    "test": "node_modules/.bin/mocha && npm run lint",
+    "test-cover": "node_modules/istanbul/lib/cli.js cover node_modules/mocha/bin/_mocha && npm run lint"
   },
   "dependencies": {
     "k-arraydiff": "^0.1.1",
@@ -18,12 +20,19 @@
     "k-sync": "*"
   },
   "devDependencies": {
+    "coveralls": "^2.11.8",
+    "eslint": "^2.9.0",
+    "eslint-config-xo": "^0.14.1",
     "expect.js": "^0.3.1",
-    "jshint": "^2.8.0",
+    "istanbul": "^0.4.2",
     "mocha": "^2.3.3"
   },
-  "optionalDependencies": {},
-  "engines": {
-    "node": ">=0.10.0"
-  }
+  "bugs": {
+    "url": "https://github.com/kantele/k-model/issues"
+  },
+  "directories": {
+    "test": "test"
+  },
+  "author": "Nate Smith",
+  "license": "MIT"
 }
