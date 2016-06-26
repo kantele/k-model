@@ -14,7 +14,7 @@
     "test-cover": "node_modules/istanbul/lib/cli.js cover node_modules/mocha/bin/_mocha && npm run lint"
   },
   "dependencies": {
-    "k-arraydiff": "^0.1.1",
+    "k-arraydiff": "*",
     "deep-is": "^0.1.3",
     "uuid": "^2.0.1",
     "k-sync": "*"
