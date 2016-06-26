@@ -15,7 +15,7 @@ describe('loading', function() {
       this.model.connection.on('connected', done);
     });
 
-    it.only('calls back simultaneous subscribes to the same document', function(done) {
+    it('calls back simultaneous subscribes to the same document', function(done) {
       var doc = this.model.connection.get('colors', 'green');
       console.log('doc.version', doc.version);
       expect(doc.version).equal(null);
