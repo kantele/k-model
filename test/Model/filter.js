@@ -3,15 +3,19 @@ var Model = require('../../lib/Model');
 
 describe('filter', function() {
   describe('getting', function() {
-    it('does not support array', function() {
+    it('supports filter of array', function() {
       var model = (new Model()).at('_page');
       model.set('numbers', [0, 3, 4, 1, 2, 3, 0]);
       var filter = model.filter('numbers', function(number) {
         return (number % 2) === 0;
       });
-      expect(function() {
-        filter.get();
-      }).to.throwException();
+      expect(filter.get()).to.eql([0, 4, 2, 0]);
+    });
+    it('supports sort of array', function() {
+      var model = (new Model()).at('_page');
+      model.set('numbers', [0, 3, 4, 1, 2, 3, 0]);
+      var filter = model.sort('numbers', 'asc');
+      expect(filter.get()).to.eql([0, 0, 1, 2, 3, 3, 4]);
     });
     it('supports filter of object', function() {
       var model = (new Model()).at('_page');
