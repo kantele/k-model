@@ -15,17 +15,20 @@ describe('loading', function() {
       this.model.connection.on('connected', done);
     });
 
-    it('calls back simultaneous subscribes to the same document', function(done) {
+    it.only('calls back simultaneous subscribes to the same document', function(done) {
       var doc = this.model.connection.get('colors', 'green');
+      console.log('doc.version', doc.version);
       expect(doc.version).equal(null);
 
       var calls = 0;
       var cb = function(err) {
         if (err) return done(err);
+        console.log('doc.version (2)', doc.version);
         expect(doc.version).equal(0);
         calls++;
       };
       for (var i = 3; i--;) {
+        console.log('subscribe')
         this.model.subscribe('colors.green', cb);
       }
 
