@@ -41,7 +41,7 @@ describe('notifications', function() {
           }
         }
       });
-      doc.subscribe((err) => {
+      doc.subscribe(function(err) {
         doc.add(count);
       });
     });
