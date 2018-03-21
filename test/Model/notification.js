@@ -11,7 +11,7 @@ describe('notifications', function() {
 
     it('notifications', function(done) {
       var doc = this.model.notification('notifications', 'hi');
-      this.timeout(1400000);
+      this.timeout(3000);
 
       var count = 0,
           max = 10,
@@ -22,10 +22,9 @@ describe('notifications', function() {
       }
 
       this.model.ref('_page.color', doc);
+
       this.model.on('insert', '_page.color', function(a, b) {
-        // if (count % 10 === 0) {
-        //   console.log('insert', count, b[0], Date.now() - start);
-        // }
+        console.log('insert', count, b[0], Date.now() - start);
 
         if (count !== b[0]) {
           done(new Error('error: ' + count + ', ' + a + ', ' +  JSON.stringify(b)));
@@ -41,9 +40,11 @@ describe('notifications', function() {
           }
         }
       });
+
       doc.subscribe(function(err) {
-        doc.add(count);
+        doc.add(count, function() { console.log('added'); });
       });
+
     });
   });
 });
