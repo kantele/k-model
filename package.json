@@ -6,7 +6,7 @@
     "type": "git",
     "url": "git://github.com/kantele/k-model.git"
   },
-  "version": "0.11.10",
+  "version": "0.11.11",
   "main": "./lib/index.js",
   "scripts": {
     "lint": "eslint --ignore-path .gitignore .",
